@@ -1,0 +1,50 @@
+"""
+Problem: Monotonic Array
+
+Difficulty: Easy
+
+Question:
+An array is monotonic if it is either monotone increasing
+or monotone decreasing.
+
+Return True if the given array is monotonic,
+otherwise return False.
+
+Examples:
+Input: [1, 2, 2, 3]
+Output: True
+
+Input: [5, 4, 4, 2]
+Output: True
+
+Input: [1, 3, 2]
+Output: False
+
+Approach:
+(To be filled after solving)
+
+Time Complexity:
+O(?)
+
+Space Complexity:
+O(?)
+"""
+
+def monotonic_array(array):
+    n= len(array)
+    if n == 0: return True
+    first = array[0]
+    last = array[n-1]
+    if first > last :
+        for k in range(n-1):
+            if array[k] < array[k+1]:return False
+    elif first == last:
+        for k in range(n-1):
+            if array[k]<array[k+1]:return False
+    else:
+        for k in range(n-1):
+            if array[k] > array[k+1]: return False
+    return True
+
+array = [-6, -3, -1, 4, 5, 8]
+print(monotonic_array(array))
